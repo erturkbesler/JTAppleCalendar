@@ -63,7 +63,7 @@ extension JTAppleCalendarView {
     
     var monthInfo: [Month] {
         get { return theData.months }
-        set { theData.months = newValue }
+        set { theData.months = monthInfo }
     }
     
     var numberOfMonths: Int {
@@ -83,10 +83,10 @@ extension JTAppleCalendarView {
     }
     
     var functionIsUnsafeSafeToRun: Bool {
-        return !calendarLayoutIsLoaded || isScrollInProgress || isReloadDataInProgress
+        return !isCalendarLayoutLoaded || isScrollInProgress || isReloadDataInProgress
     }
     
-    var calendarLayoutIsLoaded: Bool { return calendarViewLayout.isCalendarLayoutLoaded }
+    var isCalendarLayoutLoaded: Bool { return calendarViewLayout.isCalendarLayoutLoaded }
     var startDateCache: Date         { return _cachedConfiguration.startDate }
     var endDateCache: Date           { return _cachedConfiguration.endDate }
     var calendar: Calendar           { return _cachedConfiguration.calendar }
