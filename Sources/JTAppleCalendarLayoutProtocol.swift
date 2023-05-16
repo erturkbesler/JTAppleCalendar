@@ -1,7 +1,7 @@
 //
-//  UserInteractionYearFunctions.swift
+//  JTAppleCalendarLayoutProtocol.swift
 //
-//  Copyright (c) 2016-2020 JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
+//  Copyright (c) 2016-2017 JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +22,13 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
 
-extension JTACYearView {
-   
-    /// Dequeues a reuable calendar cell
-    public func dequeueReusableJTAppleMonthCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> JTACMonthCell {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? JTACMonthCell else {
-            assert(false, "Error initializing Cell View with identifier: '\(identifier)'")
-            return JTACMonthCell()
-        }
-        return cell
-    }
-    
+protocol JTAppleCalendarLayoutProtocol: class {
+    var minimumInteritemSpacing: CGFloat {get set}
+    var minimumLineSpacing: CGFloat {get set}
+    var sectionInset: UIEdgeInsets {get set}
+    var scrollDirection: UICollectionView.ScrollDirection {get set}
 }
+
+extension UICollectionViewFlowLayout: JTAppleCalendarLayoutProtocol {}
+

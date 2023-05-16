@@ -1,7 +1,7 @@
 //
-//  JTACMonthView.swift
+//  JTAppleCollectionReusableView.swift
 //
-//  Copyright (c) 2016-2020 JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
+//  Copyright (c) 2016-2017 JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,14 +22,16 @@
 //  THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+/// The header view class of the calendar
+open class JTAppleCollectionReusableView: UICollectionReusableView {
+    /// Initializes and returns a newly allocated view object with the specified frame rectangle.
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
 
-//! Project version number for JTAppleCalendar.
-FOUNDATION_EXPORT double JTAppleCalendarVersionNumber;
-
-//! Project version string for JTAppleCalendar.
-FOUNDATION_EXPORT const unsigned char JTAppleCalendarVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <JTAppleCalendar/PublicHeader.h>
-
-
+    /// Returns an object initialized from data in a given unarchiver.
+    /// self, initialized using the data in decoder.
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
